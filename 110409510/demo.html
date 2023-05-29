@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>匯率轉換計算機</title>
+		<link rel="stylesheet" type="text/css" href="mystyle.css">
+		
+	<script type="text/javascript">
+		function convertCurrency() {
+			// 取得使用者輸入的台幣金額
+			var taiwanAmount = parseFloat(document.getElementById("taiwanAmount").value);
+
+			// 定義匯率
+			var exchangeRate = {
+				USD: 0.034,   // 台幣對美元的匯率
+				EUR: 0.030,   // 台幣對歐元的匯率
+				JPY: 3.77,    // 台幣對日圓的匯率
+				KRW: 38.12,   // 台幣對韓元的匯率
+				AUD: 0.046    // 台幣對澳幣的匯率
+			};
+		
+			// 計算金額並顯示結果
+			document.getElementById("resultUSD").textContent = (taiwanAmount * exchangeRate.USD).toFixed(2) + " USD";
+			document.getElementById("resultEUR").textContent = (taiwanAmount * exchangeRate.EUR).toFixed(2) + " EUR";
+			document.getElementById("resultJPY").textContent = (taiwanAmount * exchangeRate.JPY).toFixed(2) + " JPY";
+			document.getElementById("resultKRW").textContent = (taiwanAmount * exchangeRate.KRW).toFixed(2) + " KRW";
+			document.getElementById("resultAUD").textContent = (taiwanAmount * exchangeRate.AUD).toFixed(2) + " AUD";
+		}
+	</script>
+	</head>
+	<body>
+		<h1>匯率轉換計算機</h1>
+		<p>請輸入台幣金額：</p>
+		<input type="text" id="taiwanAmount">
+		<button onclick="convertCurrency()">執行計算</button>
+		<button onclick="reset()">重新開始</button>
+		<br><br>
+		<p>匯率轉換結果：</p>
+		<p id="resultUSD"></p>
+		<p id="resultEUR"></p>
+		<p id="resultJPY"></p>
+		<p id="resultKRW"></p>
+		<p id="resultAUD"></p>
+	</body>
+</html>
